@@ -1,5 +1,7 @@
 # enjazz-api
 ##Features
+
+
 1-Login
 
 2-Registration in student activities
@@ -20,10 +22,16 @@
 
 
 ##Stack
+
+
 1-Runtime Environment: Node.js
+
 2-Language: JavaScript
+
 3-Web Server: Fastify
+
 4-ORM: Prisma
+
 5-DB: Postgres
 
 
