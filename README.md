@@ -1,25 +1,31 @@
 # enjazz-api
 ##Features
 1-Login
+
 2-Registration in student activities
+
 3-Student club registration
+
 4-Registration for the student advisory council
+
 5-Student enrollment registration
+
 6-Certificate upload
-Complete the skill record
-Search for an activity by name
-View all an activity
-View volunteer opportunities
+
+7-Complete the skill record
+
+8-Search for an activity by name
+9-View all an activity
+10-View volunteer opportunities
 
 
 ##Stack
-Runtime Environment: Node.js
-Language: JavaScript
-Web Server: Fastify
-ORM: Prisma
-DB: Postgres
+1-Runtime Environment: Node.js
+2-Language: JavaScript
+3-Web Server: Fastify
+4-ORM: Prisma
+5-DB: Postgres
 
 
 
-ؤ
-7-}خ
+
