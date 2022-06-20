@@ -1,5 +1,5 @@
 # enjazz-api
-##Features
+##Features:
 
 
 1-Login
@@ -21,7 +21,7 @@
 10-View volunteer opportunities
 
 
-##Stack
+##Stack:
 
 
 1-Runtime Environment: Node.js
