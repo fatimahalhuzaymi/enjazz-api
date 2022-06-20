@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "fastify": "^4.0.3",
+    "pino-colada": "^2.2.2"
+  }
+}
