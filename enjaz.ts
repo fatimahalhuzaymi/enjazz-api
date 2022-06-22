@@ -1,10 +1,27 @@
+import { Static, Type } from '@sinclair/typebox';
 import { FastifyInstance } from 'fastify';
-import { upsertenjazController } from '../controllers/upsert-enjaz';
+//import { upsertenjazController } from '../controllers/upsert-enjaz';
 
-export let enjaz: any[] = [
-	{ id: 1, name: 'maha', score: '1000' },
-	{ id: 2, name: 'mona', score: '600' },
-	{ id: 3, name: 'suha', score: '300' },
+
+const enjazz = Type.Object({
+	id: Type.String({ format: 'uuid' }),
+	name: Type.String(),
+    score: Type.String(),
+});
+type enjazz = Static<typeof enjazz>;
+
+const GetEnjazzQuery = Type.Object({
+	name: Type.Optional(Type.String()),
+});
+type GetEnjazzQuery = Static<typeof GetEnjazzQuery>;
+
+export let enjaz: enjazz[] = [
+	{ id: '3fa85f64-5717-4562-b3fc-2c963f66afa6', name: 'frida', score: '500' },
+	{ id: '3fa85f64-5717-4562-b3fc-2c963f66afa5', name: 'mariam',score: '0511111111' },
+	{ id: '3fa85f64-5717-4562-b3fc-2c963f66afa2', name: 'farah', score: '0511111111' },
+	{ id: '3fa85f64-5717-4562-b3fc-2c963f66afa1', name: 'yara', score: '0511111111' },
+	{ id: '3fa85f64-5717-4562-b3fc-2c963f66afa3', name: 'wafa', score: '0511111111' },
+	
 ];
 
 export default async function (server: FastifyInstance) {
@@ -14,7 +31,24 @@ export default async function (server: FastifyInstance) {
 		schema: {
 			summary: 'Updates or insets a enjaz',
 			tags: ['Enjaz'],
-			body: {},
+			body: enjaz,
+		},
+		handler: async (request, reply) => {
+			const newEnjaz: any = request.body;
+			return upsertenjazController(enjaz, newEnjaz);
+		},
+	});
+   
+    server.route({
+		method: 'PATCH',
+		url: '/enjaz/:id',
+		schema: {
+			summary: 'Update a contact by id + you dont need to pass all properties',
+			tags: ['enjaz'],
+			body: Type.Partial(enjazz),
+			params: Type.Object({
+				id: Type.String({ format: 'uuid' }),
+			}),
 		},
 		handler: async (request, reply) => {
 			const newEnjaz: any = request.body;
@@ -28,13 +62,17 @@ export default async function (server: FastifyInstance) {
 		schema: {
 			summary: 'Deletes a enjaz',
 			tags: ['Enjaz'],
+            params: Type.Object({
+                id: Type.String({
+                    format: 'uuid' })
+            })
 		},
 		handler: async (request, reply) => {
 			const id = (request.params as any).id as string;
 
-			enjaz = enjaz.filter((c) => c.id !== +id);
+			enjaz = enjazz.filter((c: { id: string; }) => c.id !== id);
 
-			return enjaz;
+			return enjazz;
 		},
 	});
 
@@ -44,9 +82,26 @@ export default async function (server: FastifyInstance) {
 		schema: {
 			summary: 'Gets all enjaz',
 			tags: ['Enjaz'],
+            params: Type.Object({
+				id: Type.String({ format: 'uuid' }),
+			}),
+			response: {
+				'2xx': Type.Union([enjazz, Type.Null()]),
+			},
 		},
+		
 		handler: async (request, reply) => {
-			return enjaz;
+			const query = request.query as GetEnjazzQuery;
+
+			if (query.name) {
+				return enjazz.filter((c: { name: string | string[]; }) => c.name.includes(query.name ?? ''));
+			} else {
+				return enjazz;
+			}
 		},
 	});
+}
+
+function upsertenjazController(enjaz: { id: string; name: string; score: string; }[], newEnjaz: any): unknown {
+    throw new Error('Function not implemented.');
 }
