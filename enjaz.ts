@@ -16,11 +16,11 @@ const GetEnjazzQuery = Type.Object({
 type GetEnjazzQuery = Static<typeof GetEnjazzQuery>;
 
 export let enjaz: enjazz[] = [
-	{ id: '3fa85f64-5717-4562-b3fc-2c963f66afa6', name: 'frida', score: '500' },
-	{ id: '3fa85f64-5717-4562-b3fc-2c963f66afa5', name: 'mariam',score: '0511111111' },
-	{ id: '3fa85f64-5717-4562-b3fc-2c963f66afa2', name: 'farah', score: '0511111111' },
-	{ id: '3fa85f64-5717-4562-b3fc-2c963f66afa1', name: 'yara', score: '0511111111' },
-	{ id: '3fa85f64-5717-4562-b3fc-2c963f66afa3', name: 'wafa', score: '0511111111' },
+	{ id: '3fa85f64-5717-4562-b3fc-2c963f66afa1', name: 'frida', score: '500' },
+	{ id: '3fa85f64-5717-4562-b3fc-2c963f66afa2', name: 'mariam',score: '700' },
+	{ id: '3fa85f64-5717-4562-b3fc-2c963f66afa3', name: 'farah', score: '44' },
+	{ id: '3fa85f64-5717-4562-b3fc-2c963f66afa4', name: 'yara', score: '1000' },
+	{ id: '3fa85f64-5717-4562-b3fc-2c963f66afa5', name: 'wafa', score: '564' },
 	
 ];
 
