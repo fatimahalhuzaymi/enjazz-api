@@ -4,16 +4,12 @@ The purpose of this project is to encourage students in the college to participa
 
 ## Features:
 
-
-1-Login
+# For Students:
+1-Login/ Logout
 
 2-Registration in student activities
 
-3-Student club registration
-
-4-Registration for the student advisory council
-
-5-Student enrollment registration
+3-Student enrollment registration
 
 6-Certificate upload
 
@@ -25,13 +21,25 @@ The purpose of this project is to encourage students in the college to participa
 
 10-View volunteer opportunities
 
+11- Pre-registered activities
+
+# For Admin:
+1- Add Points
+
+2- Approval of the students certificate
+
+3-Attach volunteer opportunities
+
+4- Attach activities
+
+5- Adding, deleting or updating activity 
 
 ## Stack:
 
 
 1-Runtime Environment: Node.js
 
-2-Language: JavaScript
+2-Language: TypeScript
 
 3-Web Server: Fastify
 
