@@ -1,0 +1,88 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+
+model User {
+ user_id   String     @id @default(auto()) @map("_id") @db.ObjectId
+
+  //user_id    String @db.ObjectId
+  activity_id String[] @db.ObjectId
+  activities Activity[] @relation(fields: [activity_id],references: [activity_id])
+  certificate_id String[] @db.ObjectId
+  
+  //certificaties Certificate[] @relation(fields: [certificate_id],references: [id])
+
+  password   String
+  name       String
+  email      String
+  college    college
+  points     String
+  score      Float
+  GPA        Float
+  //certificate Certificate[]
+  
+  @@map("users")
+}
+enum college {
+  cs
+  AB 
+  LT
+  DA 
+  law
+
+}
+
+model Activity{
+  activity_id  String     @id @default(auto()) @map("_id") @db.ObjectId
+
+  user_id String[] @db.ObjectId
+  users User[] @relation(fields: [user_id],references: [user_id])
+  activity_name String 
+  is_charity Boolean   @default(false)
+  activity_date String
+  activity_points String
+  activity_place  String
+  activity_hour String
+
+@@map("activites")
+}
+
+
+
+
+model Certificate {
+  id  String     @id @default(auto()) @map("_id") @db.ObjectId
+
+  user_id String[] @db.ObjectId
+ // users User[] @relation(fields: [user_id],references: [id])
+ //certificate_id String @id @default(auto()) @map("_id") @db.ObjectId
+  activity_name String 
+  activity_hour DateTime
+  college college
+  activity_points String
+  certificate_status String
+ 
+  //user_id String? @db.ObjectId
+  //users    User[]  @relation(fields: [user_id], references: [id])
+    @@map("certificates")
+}
+
+model Admin{
+  admin_id  String @id @default(auto()) @map("_id") @db.ObjectId
+  Password String
+  career String
+  college college
+
+  @@map("admins")
+
+
+}
