@@ -42,16 +42,6 @@ const CertificateParams = Type.Object({
 });
 type CertificateParams = Static<typeof CertificateParams>;
 
-/*
-export let certificates: Certificate[] = [
-	{user_id: new ObjectId().toHexString(), activity_name: 'ui/ux', college: 'CS',activity_point:'100' },
-	{ user_id: new ObjectId().toHexString(), activity_name: 'java Programming language course',college: 'tl',activity_point:'100'},
-	{user_id: new ObjectId().toHexString(), activity_name: 'paython Programming language course', college: 'CS',activity_point:'100'},
-	{ user_id: new ObjectId().toHexString(), activity_name: 'C Programming language course', college: 'CS',activity_point:'100'},
-	{ user_id: new ObjectId().toHexString(), activity_name: 'C++ Programming language course',college: 'CS', activity_point:'100' },
-	
-];
-*/
 const Certificatee= Type.Object({
 	certificate_id: Type.String(),
 	activity_name: Type.String(),
